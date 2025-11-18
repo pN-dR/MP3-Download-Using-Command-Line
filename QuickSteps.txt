@@ -7,6 +7,7 @@ This example shows how to take a Youtube, Instagram, TikTok etc. link and compil
 pip install -U yt-dlp
 3. Install FFMPEG using this link and scrolling down to release builds - ffmpeg-release-essentials.7z:
 https://www.gyan.dev/ffmpeg/builds/
+Extract the file and add the bin path to PATH by editing and adding a new path with the given file location
 4. Open CMD and type in:
 yt-dlp -x --audio-format mp3 --audio-quality 0 -o "<FULL_PATH_TO_SAVE_FOLDER>\%(title)s.%(ext)s" "<VIDEO_OR_PLAYLIST_URL>"
 5. Done, the file is now converted into an MP3 file and is now saved to your specified location with your specified link.

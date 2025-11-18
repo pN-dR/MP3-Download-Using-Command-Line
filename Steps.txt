@@ -1,0 +1,65 @@
+Detailed step by step guide on how to download an MP3 file.
+There are many paths you can take to download and setup MP3 download, however, I am only showing one of them.
+In this guide, I aim to use applications such as yt-dlp and FFMPEG, and then create a .bat file that presents a clean user interface that prompts you to enter a link that will undergo conversion.
+
+1. Make sure that python is installed (skip to step 2 if done). If not, go to python.org, and download the latest version for Windows.
+Add python to path before installing, this allows it to be used on the command line interface. 
+You can check that python is installed using the command python --version
+Place this application in any desired location.
+
+2. Install yt-dlp
+This can be done via the command line interface (or finding an online resource e.g. github).
+Type in:
+pip install -U yt-dlp
+
+- pip is the python package manager, used to install python-based packages
+- -U is short for upgrade, if yt-dlp is already installed, then yt-dlp will be upgraded to the latest version.
+- yt-dlp is the package to be downloaded
+You can try running the command above twice, 'requirement already satisfied' will show on the second run (if not installed initally).
+It will update yt-dlp if there is a new version.
+
+If this does not work, then you can go to this link: https://github.com/yt-dlp/yt-dlp and click code, download zip, and extract the zip into a desired folder.
+
+3. Download FFMPEG. https://www.gyan.dev/ffmpeg/builds/
+FFMPEG - Fast Forward MPEG
+Go to the link provided. 
+Go down to release builds, and click on ffmpeg-release-essentials.zip.
+Download this file and extract it into a desired location. 
+For now, ensure that yt-dlp and FFMPEG are in two separate applications. This is not to confuse you (there are other ways!).
+
+4. Edit the system environment variable to include FFMPEG.
+Go to your FFPMEG extracted file and go to the 'bin' file.
+Copy the location of that file, you will need it.
+
+Search on Windows: edit the system environment variables
+A dialogue with System Properties will show.
+Click on the tab 'Advanced'.
+Click 'Environment Variables' near the bottom.
+Now 2 boxes show: 'User variables for <you>' and 'System variables'.
+In the first box, click on the variable 'Path' and below that box, click Edit.
+This shows a number of paths your device currently uses.
+Click 'New', which opens up a new path file for you to enter.
+ADD THE FILE LOCATION COPIED INTO THE PATH.
+Authorise everything (click OK) until the dialogs close.
+
+5. Create a .bat file for a better user interface.
+Open a new text file e.g. in Notepad.
+
+Enter the following code:
+@echo off
+set /p URL=Paste link here: 
+yt-dlp -x --audio-format mp3 --audio-quality 0 -o "<FileLocationYouWantToSaveMP3In>%%(title)s.%%(ext)s" "%URL%" 
+pause
+
+- First line provides clean output of process, without this, every line would be shown to the user on CMD.
+- Next line prompts user to enter a value, URL is assigned to that input.
+- Third line: The main command that converts the file. The yt-dlp program is ran, -x to denote extraction of audio, format to MP3, convert to the best audio quality, then your file location should be entered, and the video and file extension is renamed to the link's video name and an .mp3 file respectively.
+- Stops CMD from closing automatically so you can see process.
+
+
+6. Save the text file as a .bat file.
+When saved as a .bat file, the instructions in the file will be run when the file is clicked on the next time.
+If you want to edit the file, just right click -> Edit on Notepad.
+You can save this text file as e.g. mp3.bat and the file type will change when saved. 
+Whenever you want to download an mp3 file, just click on the .bat you saved, enter the link, and the conversion will complete!.
+When the process finishes, check the specified folder you wanted to save your music in, you should find a new mp3 creation.
