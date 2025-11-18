@@ -1,0 +1,14 @@
+How to download MP3 files using the command line (Windows)!
+
+This example shows how to take a Youtube, Instagram, TikTok etc. link and compile it into an MP3 file.
+
+1. If you have not got python installed, then install python. Use python.org and download the latest version.
+2. Install yt-dlp using this command: 
+pip install -U yt-dlp
+3. Install FFMPEG using this link and scrolling down to release builds - ffmpeg-release-essentials.7z:
+https://www.gyan.dev/ffmpeg/builds/
+4. Open CMD and type in:
+yt-dlp -x --audio-format mp3 --audio-quality 0 -o "<FULL_PATH_TO_SAVE_FOLDER>\%(title)s.%(ext)s" "<VIDEO_OR_PLAYLIST_URL>"
+5. Done, the file is now converted into an MP3 file and is now saved to your specified location with your specified link.
+
+This may not work if the video you want to convert has DRM protection - see Steps for more guidance.
